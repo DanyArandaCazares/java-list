@@ -1,23 +1,23 @@
 package uaslp.objetos.list.arraylist;
 
-public class ArrayList {
+import uaslp.objetos.list.Iterator;
+import uaslp.objetos.list.List;
+
+public class ArrayList implements List {
     public static final int INITIAL_SIZE = 2;
-    private String []array;
+    private Object []array;
     private int size;
-
     public ArrayList(){
-        array = new String[INITIAL_SIZE];
+        array = new Object[INITIAL_SIZE];
     }
-
-    public void addAtTail(String data){
+    public void addAtTail(Object data){
         if(size == array.length){
             increaseSize();
         }
         array[size] = data;
         size++;
     }
-
-    public void addAtHead(String data){
+    public void addAtHead(Object data){
         if(size == array.length){
             increaseSize();
         }
@@ -27,9 +27,8 @@ public class ArrayList {
         array[0] = data;
         size++;
     }
-
-    private void increaseSize(){
-        String []newArray = new String[array.length * 2];
+    public void increaseSize(){
+        Object []newArray = new Object[array.length * 2];
 
         for(int i = 0; i < array.length; i++){
             newArray[i] = array[i];
@@ -37,7 +36,6 @@ public class ArrayList {
 
         array = newArray;
     }
-
     public void remove(int index){
         for(int i = index; i < size; i++){
             array[i - 1] = array[i];
@@ -45,29 +43,25 @@ public class ArrayList {
         array[size - 1] = null;
         size--;
     }
-
     public void removeAll(){
         for(int i = 0; i < size; i++){
             array[i] = null;
         }
         size = 0;
     }
-
-    public void setAt(int index, String data){
+    public void setAt(int index, Object data){
         if(index > size){
             return;
         }
         array[index - 1] = data;
     }
-
-    public String getAt(int index){
+    public Object getAt(int index){
         if(index > size){
             return "Error";
         }
         return array[index - 1];
     }
-
-    public void removeAllWithValue(String data){
+    public void removeAllWithValue(Object data){
         int tam = size;
         for(int i = 0; i < tam; i++){
             if(array[i] == null){
@@ -79,13 +73,10 @@ public class ArrayList {
             }
         }
     }
-
     public int getSize(){
         return size;
     }
-
-    public ArrayListIterator getIterator(){
+    public Iterator getIterator(){
         return  new ArrayListIterator(array);
     }
-
 }
