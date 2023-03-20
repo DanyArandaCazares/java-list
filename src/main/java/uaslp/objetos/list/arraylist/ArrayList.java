@@ -3,21 +3,22 @@ package uaslp.objetos.list.arraylist;
 import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.List;
 
-public class ArrayList implements List {
+public class ArrayList<T> implements List<T> {
     public static final int INITIAL_SIZE = 2;
-    private Object []array;
+    private T []array;
     private int size;
+    @SuppressWarnings("unchecked")
     public ArrayList(){
-        array = new Object[INITIAL_SIZE];
+        array = (T[])(new Object[INITIAL_SIZE]);
     }
-    public void addAtTail(Object data){
+    public void addAtTail(T data){
         if(size == array.length){
             increaseSize();
         }
         array[size] = data;
         size++;
     }
-    public void addAtHead(Object data){
+    public void addAtHead(T data){
         if(size == array.length){
             increaseSize();
         }
@@ -28,7 +29,7 @@ public class ArrayList implements List {
         size++;
     }
     public void increaseSize(){
-        Object []newArray = new Object[array.length * 2];
+        T []newArray = (T[]) (new Object[array.length * 2]);
 
         for(int i = 0; i < array.length; i++){
             newArray[i] = array[i];
@@ -49,19 +50,16 @@ public class ArrayList implements List {
         }
         size = 0;
     }
-    public void setAt(int index, Object data){
+    public void setAt(int index, T data){
         if(index > size){
             return;
         }
         array[index - 1] = data;
     }
-    public Object getAt(int index){
-        if(index > size){
-            return "Error";
-        }
-        return array[index - 1];
+    public T getAt(int index){
+        return (T)array[index - 1];
     }
-    public void removeAllWithValue(Object data){
+    public void removeAllWithValue(T data){
         int tam = size;
         for(int i = 0; i < tam; i++){
             if(array[i] == null){
@@ -76,7 +74,7 @@ public class ArrayList implements List {
     public int getSize(){
         return size;
     }
-    public Iterator getIterator(){
-        return  new ArrayListIterator(array);
+    public Iterator<T> getIterator(){
+        return (Iterator<T>) new ArrayListIterator<>(array);
     }
 }

@@ -6,8 +6,8 @@ import uaslp.objetos.list.linkedlist.LinkedListIterator;
 
 public class Main {
     public static void main(String[] args) {
-        List lista1 = new LinkedList();
-        List lista2 = new ArrayList();
+        List<String> lista1 = new LinkedList<>();
+        List<String> lista2 = new ArrayList<>();
 
         System.out.println();
 

@@ -3,16 +3,16 @@ package uaslp.objetos.list.linkedlist;
 import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.List;
 
-public class LinkedList implements List {
-    private Node head;
-    private Node tail;
+public class LinkedList<T> implements List<T> {
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
 
     public void increaseSize(){
         size++;
     }
-    public void addAtTail(Object data){
-        Node newNode = new Node();
+    public void addAtTail(T data){
+        Node<T> newNode = new Node<>();
         newNode.data = data;
         newNode.previous = tail;
         if(head == null){
@@ -23,8 +23,8 @@ public class LinkedList implements List {
         tail = newNode;
         size++;
     }
-    public void addAtHead(Object data){
-        Node node = new Node();
+    public void addAtHead(T data){
+        Node<T> node = new Node<>();
         node.data = data;
         if(head == null){
             head = node;
@@ -38,7 +38,7 @@ public class LinkedList implements List {
         size++;
     }
     public void remove(int index){
-        Node iterator = head;
+        Node<T> iterator = head;
         if(head == null){
             return;
         }
@@ -73,8 +73,8 @@ public class LinkedList implements List {
         head = null;
         size = 0;
     }
-    public void setAt(int index, Object data){
-        Node iterator = head;
+    public void setAt(int index, T data){
+        Node<T> iterator = head;
         if(index > size){
             return;
         }
@@ -83,18 +83,15 @@ public class LinkedList implements List {
         }
         iterator.data = data;
     }
-    public Object getAt(int index){
-        Node iterator = head;
-        if(index > size){
-            return "Error";
-        }
+    public T getAt(int index){
+        Node<T> iterator = head;
         for(int i = 1; i < index; i++){
             iterator = iterator.next;
         }
         return iterator.data;
     }
-    public void removeAllWithValue(Object data){
-        Node iterator = head;
+    public void removeAllWithValue(T data){
+        Node<T> iterator = head;
         if(size == 0){
             return;
         }
@@ -135,7 +132,7 @@ public class LinkedList implements List {
     public int getSize(){
         return size;
     }
-    public Iterator getIterator(){
+    public Iterator<T> getIterator(){
         return new LinkedListIterator(head);
     }
 }
