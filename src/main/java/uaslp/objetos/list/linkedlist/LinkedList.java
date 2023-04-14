@@ -1,7 +1,10 @@
-package uaslp.objetos.list.linkedlist;
+package main.java.uaslp.objetos.list.linkedlist;
 
-import uaslp.objetos.list.Iterator;
-import uaslp.objetos.list.List;
+import main.java.uaslp.objetos.list.BadIndexException;
+import main.java.uaslp.objetos.list.Iterator;
+import main.java.uaslp.objetos.list.List;
+import main.java.uaslp.objetos.list.NotNullAllowedException;
+
 
 public class LinkedList<T> implements List<T> {
     private Node<T> head;
@@ -11,7 +14,10 @@ public class LinkedList<T> implements List<T> {
     public void increaseSize(){
         size++;
     }
-    public void addAtTail(T data){
+    public void addAtTail(T data) throws NotNullAllowedException {
+        if(data == null){
+            throw new NotNullAllowedException();
+        }
         Node<T> newNode = new Node<>();
         newNode.data = data;
         newNode.previous = tail;
@@ -23,7 +29,10 @@ public class LinkedList<T> implements List<T> {
         tail = newNode;
         size++;
     }
-    public void addAtHead(T data){
+    public void addAtHead(T data) throws NotNullAllowedException{
+        if(data == null){
+            throw new NotNullAllowedException();
+        }
         Node<T> node = new Node<>();
         node.data = data;
         if(head == null){
@@ -37,7 +46,10 @@ public class LinkedList<T> implements List<T> {
         head = node;
         size++;
     }
-    public void remove(int index){
+    public void remove(int index) throws BadIndexException{
+        if(index < 1){
+            throw new BadIndexException();
+        }
         Node<T> iterator = head;
         if(head == null){
             return;
@@ -73,7 +85,13 @@ public class LinkedList<T> implements List<T> {
         head = null;
         size = 0;
     }
-    public void setAt(int index, T data){
+    public void setAt(int index, T data) throws NotNullAllowedException, BadIndexException {
+        if(data == null){
+            throw new NotNullAllowedException();
+        }
+        if(index < 1){
+            throw new BadIndexException();
+        }
         Node<T> iterator = head;
         if(index > size){
             return;
@@ -83,7 +101,10 @@ public class LinkedList<T> implements List<T> {
         }
         iterator.data = data;
     }
-    public T getAt(int index){
+    public T getAt(int index) throws BadIndexException{
+        if(index < 1){
+            throw new BadIndexException();
+        }
         Node<T> iterator = head;
         for(int i = 1; i < index; i++){
             iterator = iterator.next;

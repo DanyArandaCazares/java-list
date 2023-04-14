@@ -1,6 +1,7 @@
-package uaslp.objetos.list.arraylist;
+package main.java.uaslp.objetos.list.arraylist;
 
-import uaslp.objetos.list.Iterator;
+
+import main.java.uaslp.objetos.list.Iterator;
 
 public class ArrayListIterator<T> implements Iterator<Object> {
     private T []array;
