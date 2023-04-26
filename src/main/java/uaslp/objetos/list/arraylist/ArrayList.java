@@ -1,10 +1,9 @@
-package main.java.uaslp.objetos.list.arraylist;
+package uaslp.objetos.list.arraylist;
 
-
-import main.java.uaslp.objetos.list.BadIndexException;
-import main.java.uaslp.objetos.list.Iterator;
-import main.java.uaslp.objetos.list.List;
-import main.java.uaslp.objetos.list.NotNullAllowedException;
+import uaslp.objetos.list.BadIndexException;
+import uaslp.objetos.list.Iterator;
+import uaslp.objetos.list.List;
+import uaslp.objetos.list.NotNullAllowedException;
 
 public class ArrayList<T> implements List<T> {
     public static final int INITIAL_SIZE = 2;
@@ -43,7 +42,6 @@ public class ArrayList<T> implements List<T> {
         for(int i = 0; i < array.length; i++){
             newArray[i] = array[i];
         }
-
         array = newArray;
     }
     public void remove(int index) throws BadIndexException {

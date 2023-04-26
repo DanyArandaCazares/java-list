@@ -1,7 +1,10 @@
-package main.java.uaslp.objetos.list.arraylist;
+package uaslp.objetos.list.arraylist;
 
-import main.java.uaslp.objetos.list.*;
-import main.java.uaslp.objetos.list.linkedlist.LinkedList;
+import uaslp.objetos.list.CollectionsException;
+import uaslp.objetos.list.Iterator;
+import uaslp.objetos.list.List;
+import uaslp.objetos.list.NotNullAllowedException;
+import uaslp.objetos.list.linkedlist.LinkedList;
 
 public class Main {
 

@@ -1,10 +1,9 @@
-package main.java.uaslp.objetos.list.linkedlist;
+package uaslp.objetos.list.linkedlist;
 
-import main.java.uaslp.objetos.list.BadIndexException;
-import main.java.uaslp.objetos.list.Iterator;
-import main.java.uaslp.objetos.list.List;
-import main.java.uaslp.objetos.list.NotNullAllowedException;
-
+import uaslp.objetos.list.BadIndexException;
+import uaslp.objetos.list.Iterator;
+import uaslp.objetos.list.List;
+import uaslp.objetos.list.NotNullAllowedException;
 
 public class LinkedList<T> implements List<T> {
     private Node<T> head;
@@ -46,7 +45,7 @@ public class LinkedList<T> implements List<T> {
         head = node;
         size++;
     }
-    public void remove(int index) throws BadIndexException{
+    public void remove(int index) throws BadIndexException {
         if(index < 1){
             throw new BadIndexException();
         }

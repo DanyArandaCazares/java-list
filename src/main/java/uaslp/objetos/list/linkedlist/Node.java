@@ -1,4 +1,4 @@
-package main.java.uaslp.objetos.list.linkedlist;
+package uaslp.objetos.list.linkedlist;
 
 public class Node<T> {
     T data;

@@ -1,4 +1,4 @@
-package main.java.uaslp.objetos.list;
+package uaslp.objetos.list;
 
 public interface Iterator <T> {
     boolean hasNext();
