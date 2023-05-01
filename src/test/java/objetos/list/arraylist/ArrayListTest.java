@@ -24,6 +24,10 @@ public class ArrayListTest {
         ArrayList<String> list = new ArrayList<>();
 
         list.addAtTail("1");
+        list.addAtTail("1");
+        list.addAtTail("1");
+        list.addAtTail("1");
+        list.addAtTail("1");
         String value = list.getAt(1);
 
         Assertions.assertEquals("1", value);
@@ -50,7 +54,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void whenSetAt_verifyValuechanges() throws NotNullAllowedException, BadIndexException {
+    public void whenGetAt_verifyValueEquals() throws NotNullAllowedException, BadIndexException {
         ArrayList<String> list = new ArrayList<>();
         list.addAtHead("1");
         list.addAtHead("2");
@@ -110,7 +114,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void whenRemoveAll__verifySizeDecreases() throws NotNullAllowedException {
+    public void whenRemoveAll_verifySizeDecreases() throws NotNullAllowedException {
         ArrayList<String> list = new ArrayList<>();
         list.addAtHead("1");
         for(int i = 0; i < 5; i++){

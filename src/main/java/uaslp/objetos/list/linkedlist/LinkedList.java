@@ -53,7 +53,7 @@ public class LinkedList<T> implements List<T> {
         if(head == null){
             return;
         }
-        for(int i = 1; i<size && index > 0; i++){
+        for(int i = 1; i<=size; i++){
             if(i == index && iterator.next == null){
                 if(iterator.previous != null){
                     tail = iterator.previous;
